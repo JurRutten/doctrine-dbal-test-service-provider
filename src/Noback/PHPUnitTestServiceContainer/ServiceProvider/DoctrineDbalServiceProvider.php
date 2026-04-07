@@ -24,6 +24,9 @@ final class DoctrineDbalServiceProvider implements ServiceProvider
         $serviceContainer['doctrine_dbal.connection_configuration'] = array(
             'driver' => 'pdo_sqlite',
             'memory' => true,
+            'driverOptions' => [
+                \PDO::ATTR_STRINGIFY_FETCHES => 1,
+            ],
         );
 
         $serviceContainer['doctrine_dbal.event_manager'] = function () {
